@@ -1,0 +1,45 @@
+services:
+  - type: web
+    name: kasi-delivery-api
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: ENVIRONMENT
+        value: production
+      - key: LOG_LEVEL
+        value: info
+      - key: OSRM_BASE_URL
+        value: https://router.project-osrm.org
+      - key: OSRM_TIMEOUT
+        value: 20s
+      - key: OPTIMIZER_TIMEOUT
+        value: 10s
+      - key: NOMINATIM_BASE_URL
+        value: https://nominatim.openstreetmap.org
+      - key: NOMINATIM_USER_AGENT
+        value: kasi-delivery/1.0 (contact: ops@kasi.delivery)
+      - key: H3_RESOLUTION
+        value: "9"
+
+  - type: web
+    name: kasi-delivery-web
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BACKEND_URL
+        fromService:
+          type: web
+          name: kasi-delivery-api
+          property: hostport

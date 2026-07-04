@@ -1,0 +1,13 @@
+.git
+.github
+bin
+coverage.out
+*.out
+.env
+docs
+README.md
+Makefile
+node_modules
+frontend
+package.json
+package-lock.json

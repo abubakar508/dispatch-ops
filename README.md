@@ -26,6 +26,41 @@ The frontend is a modern Next.js dashboard. It never talks to OSRM or the solver
 
 ---
 
+
+## Installation
+
+Requires **Go 1.23+** and **Node.js 20+**.
+
+```bash
+git clone https://github.com/abubakar508/dispatch-ops.git
+cd dispatch-ops
+npm install        # installs root + frontend dependencies (postinstall)
+```
+
+---
+
+## Running Locally (single command)
+
+```bash
+npm run dev
+```
+
+This starts **both** services in one terminal with color-prefixed, interleaved logs:
+
+- `API` (green) — the Go server on `http://localhost:8080`
+- `WEB` (cyan) — the Next.js app on `http://localhost:3000`
+
+Open **http://localhost:3000**. The frontend proxies API calls to the backend automatically. Stopping the command (`Ctrl+C`) stops both.
+
+To run them separately:
+
+```bash
+make run-api    # go run ./cmd/server
+make run-web    # next dev
+```
+
+---
+
 ## Features
 
 - Full-screen interactive Leaflet map centered on Nairobi (zoom 12) using OpenStreetMap data (CARTO Voyager tiles).

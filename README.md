@@ -1,5 +1,8 @@
 # Kasi Delivery — Route Optimizer
 
+![Blank](assets/start.png)
+
+
 An internal logistics dashboard for optimizing multi-stop delivery routes using **real road travel times**. Dispatchers place a start, delivery stops, and an end on an interactive map; the service computes an order that minimizes total driving time and renders the optimized route alongside the original for comparison.
 
 This is an operations tool, not a customer-facing product. There is no login, no signup, and no database — everything runs in-memory and both services are usable the moment they start.
@@ -12,6 +15,21 @@ The project is split into two independently deployable services:
 A single command runs both together with unified logs.
 
 ---
+
+## Demo (Screenshot)
+
+### Dashboard screen
+![Blank](assets/initial.png)
+
+### Dashboard screen 2
+![Banner](assets/banner.png)
+
+
+### Test screen
+![Test](assets/test.png)
+
+
+
 
 ## Overview
 
